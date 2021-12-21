@@ -1,0 +1,80 @@
+html 
+    head 
+        title home 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+        <link href="Fontsawesome/css/all.css" rel="stylesheet">
+        <link href="Fontsawesome/webfonts.css" rel="stylesheet">
+        <!-- Bootstrap CSS -->
+        //- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+        <!-- Bootstrap Font Icon CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        style
+            include ../static/signup.css
+
+    body 
+        //- h1 hello
+        nav.sidenav
+            h2.logo Discusso 
+            ul.menu
+                li.home 
+                    i(class="bi bi-house-door-fill" id="home-icon")
+                    a(href="/") Home 
+                //- li  .que 
+                    i(class="bi bi-question-diamond-fill" id="que-icon")
+                    a(href="/question") Questions 
+                //- li.ask  
+                    i(class="bi bi-question-diamond-fill" id="que-icon")
+                    a(href="/question") Ask Question
+                li.login 
+                    i(class="bi bi-door-open-fill")
+                    a(href="/login") Login  
+                li.signup 
+                    i(class="bi bi-person-plus-fill")
+                    a(href="/signup") Signup
+                li.About 
+                    i(class="bi bi-info-circle-fill")
+                    a(href="/about") AboutUs 
+        ul.navbar
+            li.que 
+                i(class="bi bi-search" id="search-btn")
+                input(type="text" placeholder="Search Questions..." class="search" id="search-bar") 
+            li.welcome 
+                i(class="bi bi-person-fill")
+                a(href="/about") Welcome,Guest 
+        .container 
+            h1.tag-line1  Questions?
+            p.tag-line2 
+                i Don't hesitate to ask for help...
+        .err 
+            if type == "error" 
+                i(class="bi bi-exclamation-diamond-fill")
+                p.error #{message}
+        .card 
+            form(action = "/signup" method="POST").login-form
+                div.email-login
+                    label.email-label(for="email") 
+                        b Email
+                    input.email-input(type="email" placeholder="Enter Email" name="email" required)
+
+                    label.fname-label(for="fname") 
+                        b Fullname
+                    input.fname-input(type="text" placeholder="Enter Fullname" name="fname" required)
+                    div.gender
+                        b Gender: 
+                        input.gender-input(type="radio" id="gender" name="gender" value="M" required)
+                        label.gender-label(for="gender" style="color:black") Male 
+                        input.gender-input(type="radio" id="gender" name="gender" value="F" required)
+                        label.gender-label(for="gender" style="color:black") Female 
+
+                    label.bio-label(for="bio") 
+                        b Bio
+                    textarea.bio-input(type="text" placeholder="e.g I am a web developer" cols="10" raw="10" name="bio" required)
+
+                    label.psw-label(for="psw") 
+                        b Password
+                    input.psw-input(type="password" placeholder="Enter Password" name="psw" required)
+
+                    label.repsw-label(for="repsw") 
+                        b Re-Password
+                    input.repsw-input(type="password" placeholder="Enter same password again" name="repsw" required)
+                    input.sub-btn(type= "submit" value= "submit")

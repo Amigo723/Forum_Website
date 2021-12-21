@@ -1,0 +1,77 @@
+html 
+    head 
+        title home 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+        <link href="Fontsawesome/css/all.css" rel="stylesheet">
+        <link href="Fontsawesome/webfonts.css" rel="stylesheet">
+        <!-- Bootstrap CSS -->
+        //- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+        <!-- Bootstrap Font Icon CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        style
+            include ../static/ask.css
+
+    body 
+        //- h1 hello
+        nav.sidenav
+            h2.logo Discusso 
+            ul.menu
+                li.home 
+                    i(class="bi bi-house-door-fill" id="home-icon")
+                    a(href="/") Home 
+                //- li  .que 
+                    i(class="bi bi-question-diamond-fill" id="que-icon")
+                    a(href="/question") Questions 
+                if isAuth
+                    li.ask  
+                        i(class="bi bi-question-diamond-fill" id="que-icon")
+                        a(href="/ask") Ask Question
+                    li.profile 
+                        i(class="bi bi-person-plus-fill")
+                        a(href="/profile") Profile
+                    li.logout 
+                        i(class="bi bi-door-closed-fill")
+                        a(href="/logout") LogOut
+                else 
+                    li.login 
+                        i(class="bi bi-door-open-fill")
+                        a(href="/login") Login  
+                    li.signup 
+                        i(class="bi bi-person-plus-fill")
+                        a(href="/signup") Signup
+                li.About 
+                    i(class="bi bi-info-circle-fill")
+                    a(href="/about") AboutUs 
+        ul.navbar
+            li.que 
+                i(class="bi bi-search" id="search-btn")
+                input(type="text" placeholder="Search Questions..." class="search" id="search-bar") 
+            li.welcome 
+                i(class="bi bi-person-fill")
+                if isAuth
+                    a(href="/about") Welcome, #{fname}
+                else 
+                    a(href="/about") Welcome, Guest
+        .container 
+            h1.tag-line1  Questions?
+            //- p hello
+            p.tag-line2 
+                i Don't hesitate to ask for help...
+        //- .path   
+            i(class="bi bi-house-door-fill" id="home-icon")
+        form(action = "/ask" method="POST").ask_que 
+            .title 
+                label.title-label(for="title") From
+                input(type="email" class="head" name="title" value=email disabled)
+            .id 
+                label.id-label(for="id_input") Id
+                input(type="text" class="id_input" name="iid" value=id)
+            .body   
+                label.title-label(for="Body") Ask Question here:
+                textarea(type="text" class="input_body" name="body" cols="85" rows="10" placeholder="Your Question?" required)
+            //- .tag  
+                label.title-label(for="tag") Keyword:
+                input(type="text" class="input_tag" name="tag" placeholder="add minimum 1 tag")
+            .review_btn    
+                input.sub_btn(type= "submit" value= "submit")
+            

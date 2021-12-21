@@ -1,0 +1,60 @@
+html 
+    head 
+        title home 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+        <link href="Fontsawesome/css/all.css" rel="stylesheet">
+        <link href="Fontsawesome/webfonts.css" rel="stylesheet">
+        <!-- Bootstrap CSS -->
+        //- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+        <!-- Bootstrap Font Icon CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        style
+            include ../static/login.css
+
+    body 
+        //- h1 hello
+        nav.sidenav
+            h2.logo Discusso 
+            ul.menu
+                li.home 
+                    i(class="bi bi-house-door-fill" id="home-icon")
+                    a(href="/") Home 
+                //- li  .que 
+                    i(class="bi bi-question-diamond-fill" id="que-icon")
+                    a(href="/question") Questions 
+                //- li.ask  
+                    i(class="bi bi-question-diamond-fill" id="que-icon")
+                    a(href="/question") Ask Question
+                li.login 
+                    i(class="bi bi-door-open-fill")
+                    a(href="/login") Login  
+                li.signup 
+                    i(class="bi bi-person-plus-fill")
+                    a(href="/signup") Signup
+                li.About 
+                    i(class="bi bi-info-circle-fill")
+                    a(href="/about") AboutUs 
+        ul.navbar
+            li.que 
+                i(class="bi bi-search" id="search-btn")
+                input(type="text" placeholder="Search Questions..." class="search" id="search-bar") 
+            li.welcome 
+                i(class="bi bi-person-fill")
+                a(href="/about") Welcome,Guest 
+        .container 
+            h1.tag-line1  Questions?
+            p.tag-line2 
+                i Don't hesitate to ask for help...
+        .card 
+            form(action = "/login" method="POST").login-form
+                div.email-login
+                    label.email-label(for="email") 
+                        b Email
+                    input.email-input(type="email" placeholder="Enter Email" name="email" required)
+                    label.psw-label(for="psw") 
+                        b Password
+                    input.psw-input(type="password" placeholder="Enter Password" name="psw" required)
+                    input.sub-btn(type= "submit" value= "submit")
+
+                a(class="forget-pass" href="#") Forgot password?
+        

@@ -1,0 +1,104 @@
+html 
+    head 
+        title home 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+        <link href="Fontsawesome/css/all.css" rel="stylesheet">
+        <link href="Fontsawesome/webfonts.css" rel="stylesheet">
+        <!-- Bootstrap CSS -->
+        //- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+        <!-- Bootstrap Font Icon CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        style
+            include ../static/profile.css
+
+    body 
+        //- h1 hello
+        nav.sidenav
+            h2.logo Discusso 
+            ul.menu
+                li.home 
+                    i(class="bi bi-house-door-fill" id="home-icon")
+                    a(href="/") Home 
+                //- li  .que 
+                    i(class="bi bi-question-diamond-fill" id="que-icon")
+                    a(href="/question") Questions 
+                if isAuth
+                    li.ask  
+                        i(class="bi bi-question-diamond-fill" id="que-icon")
+                        a(href="/ask") Ask Question
+                    li.profile 
+                        i(class="bi bi-person-plus-fill")
+                        a(href="/profile") Profile
+                    li.logout 
+                        i(class="bi bi-door-closed-fill")
+                        a(href="/logout") LogOut
+                else 
+                    li.login 
+                        i(class="bi bi-door-open-fill")
+                        a(href="/login") Login  
+                    li.signup 
+                        i(class="bi bi-person-plus-fill")
+                        a(href="/signup") Signup
+                li.About 
+                    i(class="bi bi-info-circle-fill")
+                    a(href="/about") AboutUs 
+        ul.navbar
+            li.que 
+                i(class="bi bi-search" id="search-btn")
+                input(type="text" placeholder="Search Questions..." class="search" id="search-bar") 
+            li.welcome 
+                i(class="bi bi-person-fill")
+                a(href="/about") Welcome, #{fname} 
+        .container 
+            h1.tag-line1  
+                i(class="bi bi-person-circle")
+                |#{fname}
+            //- p
+                i(class="bi bi-person-circle")
+        .profile-content
+            //- ul.dir   
+                li
+                    i(class="bi bi-person-fill")
+                    a(href="#").about-btn About 
+                li
+                    i(class="bi bi-question-diamond-fill")
+                    a(href="#").que-btn Questions 
+                li
+                    i(class="bi bi-chat-fill")
+                    a(href="#").ans-btn Answers
+            .user_info 
+                h2 About
+            .about_con
+                table.table
+                    tr.name
+                        th Name 
+                        td #{fname}
+                    tr.email  
+                        th Email 
+                        td #{email}
+                    tr.gender  
+                        th Gender 
+                        td #{gender}
+                    tr.about  
+                        th About 
+                        td #{bio} 
+            .questions 
+                h2 Questions
+            each que in ques
+                .question-box 
+                        .question #{que.body}
+                        .details    
+                            | time
+            .footer
+                |hello
+            //- .question-box 
+                .question  
+                    //- | #{que.question}
+                    | hello
+                .details    
+                    | time
+                    .btns 
+                        input.anss-btn(type="button" value="Answer")
+                        input.anss-btn(type="button" value="All Answers")
+                .ans-spot
+                    textarea.answer(name="answer" cols="100" rows="-1")
